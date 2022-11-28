@@ -1,6 +1,6 @@
 ﻿namespace TwoDecksBlazor
 {
-    enum Suits
+    public enum Suits
     {
         Clubs,
         Diamonds,

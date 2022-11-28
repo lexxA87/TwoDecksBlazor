@@ -1,6 +1,6 @@
 ﻿namespace TwoDecksBlazor
 {
-    internal class Card
+    public class Card
     {
         public Card(Values value, Suits suit)
         {
