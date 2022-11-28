@@ -8,17 +8,24 @@
                      <strong>Deck <span style="text-decoration: underline">0</span>ne</strong>
                  </label>
                  <select id="deck1" @bind="twoDecks.LeftCardSelected" class="custom-select" size="10">
-                     
-                 </select>
+                    @for (int i = 0; i < twoDecks.LeftDeckCount; i++)
+                    {
+                        <option value="@i">@twoDecks.LeftDeckCardName(i)</option>
+                    }
+                </select>
             </div>
             <div class="row">
-
+                <button class="btn btn-primary col mt-2" accesskey="s" @onclick="twoDecks.Shuffle">
+                    <span style="text-decoration: underline">S</span>huffle
+                </button>
             </div>
             <div class="row">
-
+                <button class="btn btn-primary col mt-2" accesskey="r" @onclick="twoDecks.Reset">
+                    <span style="text-decoration: underline">R</span>eset
+                </button>
             </div>
             <div class="row">
-
+                <h2>@twoDecks.LeftDeckCardName(twoDecks.LeftCardSelected)</h2>
             </div>
         </div>
     </div>
