@@ -1,9 +1,29 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <div class="row">
+                 <label for="deck1">
+                     <strong>Deck <span style="text-decoration: underline">0</span>ne</strong>
+                 </label>
+                 <select id="deck1" @bind="twoDecks.LeftCardSelected" class="custom-select" size="10">
+                     
+                 </select>
+            </div>
+            <div class="row">
 
-<h1>Hello, world!</h1>
+            </div>
+            <div class="row">
 
-Welcome to your new app.
+            </div>
+            <div class="row">
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    TwoDecks twoDecks = new();
+}
