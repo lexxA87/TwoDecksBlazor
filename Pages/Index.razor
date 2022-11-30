@@ -7,7 +7,8 @@
                  <label for="deck1" accesskey="o">
                      <strong>Deck <span style="text-decoration: underline">0</span>ne</strong>
                  </label>
-                 <select id="deck1" @bind="twoDecks.LeftCardSelected" class="custom-select" size="10">
+                 <select id="deck1" @bind="twoDecks.LeftCardSelected" class="custom-select" size="10"
+                 @onkeypress="LeftKeyHandler"  @ondblclick="LeftDblClickHandler">
                     @for (int i = 0; i < twoDecks.LeftDeckCount; i++)
                     {
                         <option value="@i">@twoDecks.LeftDeckCardName(i)</option>
@@ -34,7 +35,8 @@
                 <label for="deck2" accesskey="w">
                      <strong>Deck T<span style="text-decoration: underline">w</span>o</strong>
                  </label>
-                 <select id="deck2" class="custom-select" size="10" @bind="twoDecks.RightCardSelected">
+                 <select id="deck2" class="custom-select" size="10" @bind="twoDecks.RightCardSelected"
+                 @onkeypress="RightKeyHandler"  @ondblclick="RightDblClickHandler">
                     @for (int i = 0; i < twoDecks.RightDeckCount; i++)
                     {
                             <option value="@i">@twoDecks.RightDeckCardName(i)</option>
@@ -60,4 +62,23 @@
 
 @code {
     TwoDecks twoDecks = new();
+
+    private void LeftKeyHandler(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+            twoDecks.MoveCard(Direction.LeftToRight);
+    }
+    private void LeftDblClickHandler(MouseEventArgs e)
+    {
+        twoDecks.MoveCard(Direction.LeftToRight);
+    }
+    private void RightKeyHandler(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+            twoDecks.MoveCard(Direction.RightToLeft);
+    }
+    private void RightDblClickHandler(MouseEventArgs e)
+    {
+        twoDecks.MoveCard(Direction.RightToLeft);
+    }
 }

@@ -37,5 +37,19 @@
         {
             leftDeck = new Deck();
         }
+
+        public void MoveCard(Direction direction)
+        {
+            if (direction == Direction.LeftToRight)
+            {
+                rightDeck.Add(leftDeck[LeftCardSelected]);
+                leftDeck.RemoveAt(LeftCardSelected);
+            }
+            else
+            {
+                leftDeck.Add(rightDeck[RightCardSelected]);
+                rightDeck.RemoveAt(RightCardSelected);
+            }
+        }
     }
 }
