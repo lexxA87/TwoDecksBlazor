@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-5">
             <div class="row">
-                 <label for="deck1">
+                 <label for="deck1" accesskey="o">
                      <strong>Deck <span style="text-decoration: underline">0</span>ne</strong>
                  </label>
                  <select id="deck1" @bind="twoDecks.LeftCardSelected" class="custom-select" size="10">
@@ -24,9 +24,36 @@
                     <span style="text-decoration: underline">R</span>eset
                 </button>
             </div>
-            <div class="row">
+            @*<div class="row">
                 <h2>@twoDecks.LeftDeckCardName(twoDecks.LeftCardSelected)</h2>
+            </div>*@
+        </div>
+        <div class="col-1"/>
+        <div class="col-5">
+            <div class="row">
+                <label for="deck2" accesskey="w">
+                     <strong>Deck T<span style="text-decoration: underline">w</span>o</strong>
+                 </label>
+                 <select id="deck2" class="custom-select" size="10" @bind="twoDecks.RightCardSelected">
+                    @for (int i = 0; i < twoDecks.RightDeckCount; i++)
+                    {
+                            <option value="@i">@twoDecks.RightDeckCardName(i)</option>
+                    }
+                </select>
             </div>
+            <div class="row">
+                 <button class="btn btn-primary col mt-2" accesskey="c" @onclick="twoDecks.Clear">
+                    <span style="text-decoration: underline">C</span>lear
+                </button>
+            </div>
+            <div class="row">
+                 <button class="btn btn-primary col mt-2" accesskey="t" @onclick="twoDecks.Sort">
+                    Sor<span style="text-decoration: underline">t</span>
+                </button>
+            </div>
+            @*<div class="row">
+                <h2>@twoDecks.RightDeckCardName(twoDecks.RightCardSelected)</h2>
+            </div>*@
         </div>
     </div>
 </div>
